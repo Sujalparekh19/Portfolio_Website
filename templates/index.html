@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('serve_static', filename='style.css') }}">
+    <title>Sujal's Portfolio</title>
+</head>
+<body>
+    <header>
+        <h1>Sujal Parekh</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact Me</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="about">
+        <div class="about-me">
+            <h2>About Me</h2>
+            <!-- <img src="image1.jpeg" alt="image" width="200" height="200"> -->
+            <img src="{{ url_for('serve_static', filename='images/image1.jpeg') }}" alt="Image" width="200" height="200">
+
+            <p>Hello Folks!!🖐️, I am Sujal Parekh<br>
+            I'm a passionate data scientist with a knack for transforming complex datasets into meaningful insights. With a strong foundation in statistical analysis and machine learning, I thrive on solving real-world problems through data-driven approaches. Whether it's uncovering hidden patterns or building predictive models, I'm dedicated to harnessing the power of data to make informed decisions and drive innovation.</br>
+            </p>
+            <div class="center-container">
+                <a href="mycv.pdf" class="centered-button" download>Download CV</a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="portfolio">
+        <div class="projects">
+        <h2>Portfolio</h2>
+        <div class="project1">
+            <!-- <img src="Project1.jpg" alt="image" width="200" height="200"> -->
+            <img src="{{ url_for('serve_static', filename='images/Project1.jpg') }}" alt="Image" width="200" height="200">
+
+            <h3>Book recommender System</h3>
+            <p>Introducing my book recommender system project, where I blend the art of reading with the precision of data science. By leveraging advanced recommendation algorithms, I've developed a platform that understands your literary preferences and suggests books that resonate with your tastes. Discover your next captivating read effortlessly with this personalized book recommendation solution.</p>
+        </div>
+        <div class="project2">
+            <!-- <img src="Project2.jpeg" alt="image" width="200" height="200"> -->
+            <img src="{{ url_for('serve_static', filename='images/Project2.jpeg') }}" alt="Image" width="200" height="200">
+
+            <h3>Olympic Data Analysis</h3>
+            <p>Welcome to my Olympic Data Analysis project, where I dive into the historical treasure trove of Olympic events. Using data analytics, I unveil intriguing trends, insights, and patterns spanning decades of athletic excellence. Join me in exploring the stories hidden within the numbers, from groundbreaking records to the evolution of sportsmanship on the world's grandest stage.</p>
+        </div>
+        <div class="project3">
+            <!-- <img src="Project3.png" alt="image" width="200" height="200"> -->
+            <img src="{{ url_for('serve_static', filename='images/Project3.png') }}" alt="Image" width="200" height="200">
+
+            <h3>Stock Price Prediction</h3>
+            <p>Step into the world of financial forecasting with my Stock Price Prediction project. By harnessing the power of machine learning and historical market data, I've developed a tool that analyzes trends, patterns, and external factors to provide informed predictions on stock prices. Explore the realm where data-driven insights meet the dynamic landscape of the stock market, guiding investors towards more informed decisions.</p>
+        </div>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <div class="contacts">
+        <h2>Contact Me</h2>
+        <p>You can reach me at via email<br>
+          <h4>sujalparekh193@gmail.com</h4></p>
+        <p>Or fill this form :</p>
+        <div class="contact-form">
+            <form action="/submit" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+                
+                <button type="submit">Submit</button>
+            </form>
+            {% if confirmation_message %}
+            <p>{{ confirmation_message }}</p>
+            {% endif %}
+        </div>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2023 Sujal's Portfolio. All rights reserved.</p>
+    </footer>
+</body>
+</html>
